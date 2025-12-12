@@ -1,0 +1,179 @@
+<!--
+  BabaChemistryFrontPage.html
+  Single-file HTML front page for a Class 12 Chemistry project.
+  - Replace the Topic and Roll No placeholders where needed.
+  - This file is ready to copy into a GitHub repo or use with GitHub Pages.
+  - Print-friendly A4 layout included.
+--><!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CHEMISTRY PROJECT — Baba International School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#1e90ff;
+      --muted:#6b7280;
+      --paper:#fcfdff;
+      --border:#d1d5db;
+      --shadow: 0 8px 24px rgba(16,24,40,0.08);
+      --print-margin: 20mm;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:#f3f6fb;font-family:Poppins,system-ui,Arial,sans-serif;color:#0f172a}
+    .page{
+      width:210mm; /* A4 width */
+      min-height:297mm; /* A4 height */
+      margin:24px auto;
+      background:linear-gradient(180deg,var(--paper),#fff);
+      padding:32px;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+    .header{
+      text-align:center;
+      margin-top:8px;
+    }
+    .school{
+      font-family:'Playfair Display', serif;
+      font-size:22px;
+      letter-spacing:1px;
+      color:var(--accent);
+      font-weight:700;
+      text-transform:capitalize;
+    }
+    .title{
+      margin-top:6px;
+      font-family:'Playfair Display', serif;
+      font-size:36px;
+      font-weight:700;
+      letter-spacing:4px;
+      color:#0b1220;
+    }
+    .subtitle{
+      margin-top:6px;
+      font-size:14px;
+      color:var(--muted);
+      font-weight:600;
+    }/* Decorative band */
+.decor{
+  display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 22px;
+}
+.decor svg{width:48px;height:48px;opacity:0.95}
+
+.content{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:18px 30px;margin-top:8px;
+}
+.box{
+  background:linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.95));
+  border-radius:10px;padding:16px;border:1px dashed var(--border);
+  min-height:110px;display:flex;flex-direction:column;justify-content:center;
+}
+.label{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px}
+.value{font-size:16px;font-weight:700;color:#0b1220}
+
+.full{grid-column:1/3}
+.footer{
+  margin-top:26px;text-align:center;color:var(--muted);font-size:13px
+}
+
+/* Molecule background subtle */
+.molecules{
+  position:absolute;right:-40px;top:8px;opacity:0.08;transform:rotate(8deg);pointer-events:none
+}
+
+@media print{
+  body{background:white}
+  .page{box-shadow:none;border-radius:0;margin:0;padding:var(--print-margin);width:auto;min-height:auto}
+}
+
+/* small responsive */
+@media (max-width:900px){
+  .page{width:95%;padding:20px}
+  .content{grid-template-columns:1fr}
+  .decor svg{width:36px;height:36px}
+}
+
+  </style>
+</head>
+<body>
+  <div class="page" role="main"><!-- Subtle molecule svg background -->
+<svg class="molecules" width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+  <g stroke="#0b1220" stroke-width="4" fill="none">
+    <circle cx="60" cy="60" r="18"/>
+    <circle cx="150" cy="30" r="12"/>
+    <circle cx="240" cy="90" r="24"/>
+    <circle cx="320" cy="40" r="10"/>
+    <path d="M78 78 L140 46"/>
+    <path d="M228 86 L290 52"/>
+    <path d="M150 30 L230 90"/>
+  </g>
+</svg>
+
+<header class="header">
+  <div class="school">Baba International School</div>
+  <div class="title">CHEMISTRY PROJECT</div>
+  <div class="subtitle">Class 12 &nbsp;•&nbsp; Stream: PCM</div>
+</header>
+
+<div class="decor" aria-hidden>
+  <!-- Beaker -->
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v2h8V2H8zM6 4v2.5l2 11.5A2 2 0 0 0 10 20h4a2 2 0 0 0 2-2l2-11.5V4H6z" fill="currentColor"/></svg>
+  <!-- Atom -->
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10.34 2 9 6.58 9 12s1.34 10 3 10 3-4.58 3-10S13.66 2 12 2zm6.32 4.34c-.86-.53-2.2-.06-3.34 1.06-1.53 1.53-2.6 3.9-2.98 6.6 2.64.38 5.03 1.45 6.56 2.98 1.12 1.14 1.59 2.48 1.06 3.34-.53.86-2.2.06-3.34-1.06-1.53-1.53-2.6-3.9-2.98-6.6-2.64-.38-5.03-1.45-6.56-2.98C3.34 8.98 2.87 7.64 3.4 6.78c.53-.86 2.2-.06 3.34 1.06 1.53 1.53 2.6 3.9 2.98 6.6 2.64.38 5.03 1.45 6.56 2.98 1.14 1.12 1.59 2.48 1.06 3.34z" fill="currentColor"/></svg>
+  <!-- Molecule cluster -->
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM6 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM20 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM8.5 12.5l7-4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor"/></svg>
+</div>
+
+<main class="content" aria-label="Project details">
+  <section class="box full" aria-labelledby="topic">
+    <div class="label" id="topic">✦ Topic</div>
+    <div class="value">__________________________________________</div>
+  </section>
+
+  <section class="box">
+    <div class="label">✦ Submitted By</div>
+    <div class="value">pookie singh</div>
+  </section>
+
+  <section class="box">
+    <div class="label">✦ Class & Stream</div>
+    <div class="value">Class 12 — PCM</div>
+  </section>
+
+  <section class="box">
+    <div class="label">✦ Roll No.</div>
+    <div class="value">________________</div>
+  </section>
+
+  <section class="box">
+    <div class="label">✦ Session</div>
+    <div class="value">2024 — 2025</div>
+  </section>
+
+  <section class="box">
+    <div class="label">✦ Submitted To</div>
+    <div class="value">kunal shukla — captain</div>
+  </section>
+
+  <section class="box full" style="text-align:center;margin-top:6px;">
+    <div style="font-size:13px;color:var(--muted);font-weight:600;margin-bottom:8px">Decorative chemistry area</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:18px">
+      <!-- small svg icons -->
+      <svg width="48" height="48" viewBox="0 0 24 24"><path d="M7 2v4H5v2h14V6h-2V2H7zM7 10H5v10h14V10h-2v6H9v-6H7z" fill="currentColor"/></svg>
+      <svg width="48" height="48" viewBox="0 0 24 24"><path d="M6 2h12l2 6H4l2-6zM3 10h18v2a7 7 0 0 1-7 7H10a7 7 0 0 1-7-7v-2z" fill="currentColor"/></svg>
+      <svg width="48" height="48" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5c0 2.76 2.69 5.44 5 9.18 2.31-3.74 5-6.42 5-9.18a5 5 0 0 0-5-5z" fill="currentColor"/></svg>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">Designed for Baba International School — Print on A4 (portrait)</footer>
+
+  </div>
+</body>
+</html>
