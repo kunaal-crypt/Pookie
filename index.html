@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Niharika Birthday Diary</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Caveat:wght@500&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Caveat:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
 body{
 margin:0;
 font-family:Poppins,sans-serif;
@@ -20,18 +20,22 @@ overflow-x:hidden;
 h1{
 font-family:Pacifico;
 text-align:center;
-font-size:54px;
+font-size:56px;
 margin-top:20px;
 color:#ff2e88;
-animation:pop 3s infinite alternate;
+animation:titleFloat 4s infinite ease-in-out;
 }
 
-@keyframes pop{0%{transform:scale(1)}100%{transform:scale(1.08)}}
+@keyframes titleFloat{
+0%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0)}
+}
 
 #counter{
 text-align:center;
 font-size:20px;
-margin-top:10px;
+margin-top:6px;
 font-weight:600;
 color:#444;
 }
@@ -47,35 +51,50 @@ box-shadow:0 25px 70px rgba(0,0,0,0.15);
 transform:translateY(70px);
 opacity:0;
 transition:all 1s;
-position:relative;
 }
 
 .page.visible{transform:translateY(0);opacity:1}
 
 .page h2{
 font-family:Caveat;
-font-size:38px;
+font-size:40px;
 color:#ff4da6;
 }
 
 .page p{
 line-height:1.9;
-font-size:16px;
+font-size:17px;
 }
 
-/* doodle animations */
-.doodle{
-position:absolute;
-stroke:#ff4da6;
-stroke-width:3;
-fill:none;
-stroke-dasharray:200;
-stroke-dashoffset:200;
-animation:draw 3s forwards;
+/* typewriter handwriting */
+.typewrite{
+font-family:Caveat;
+font-size:22px;
+white-space:nowrap;
+overflow:hidden;
+border-right:2px solid #ff4da6;
+width:0;
+animation:typing 6s steps(80,end) forwards, blink 1s infinite;
 }
 
-@keyframes draw{
-to{stroke-dashoffset:0}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+
+/* glowing particles */
+.particle{
+position:fixed;
+width:6px;
+height:6px;
+border-radius:50%;
+background:white;
+opacity:0.7;
+animation:particleFloat linear infinite;
+}
+
+@keyframes particleFloat{
+0%{transform:translateY(0) scale(0.6);opacity:0}
+50%{opacity:1}
+100%{transform:translateY(-120vh) scale(1);opacity:0}
 }
 
 /* balloons limited */
@@ -98,10 +117,7 @@ height:40px;
 background:#555;
 }
 
-@keyframes float{
-0%{transform:translateY(0)}
-100%{transform:translateY(-120vh)}
-}
+@keyframes float{0%{transform:translateY(0)}100%{transform:translateY(-120vh)}}
 
 /* cake */
 .cake{
@@ -134,12 +150,8 @@ position:absolute;
 top:-65px;
 left:50%;
 transform:translateX(-50%);
-width:24px;
-height:24px;
-background:orange;
-border-radius:50%;
-opacity:0;
-}
+width:24px;height:24px;
+background:orange;border-radius:50%;opacity:0}
 
 .flame.lit{opacity:1;animation:flicker .3s infinite alternate}
 
@@ -147,127 +159,64 @@ opacity:0;
 
 /* secret envelope */
 .envelope{
-margin:80px auto;
-width:220px;
-height:140px;
-background:#ff9ac6;
-position:relative;
-cursor:pointer;
-border-radius:8px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-}
+margin:80px auto;width:220px;height:140px;background:#ff9ac6;position:relative;cursor:pointer;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
 
 .envelope:before{
-content:"";
-position:absolute;
-width:0;height:0;
-border-left:110px solid transparent;
-border-right:110px solid transparent;
-border-top:70px solid #ff7ab6;
-top:0;left:0;
-}
+content:"";position:absolute;width:0;height:0;border-left:110px solid transparent;border-right:110px solid transparent;border-top:70px solid #ff7ab6;top:0;left:0}
 
 #secretMessage{
-display:none;
-background:white;
-padding:30px;
-border-radius:20px;
-margin-top:30px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-font-family:Caveat;
-font-size:22px;
-}
+display:none;background:white;padding:30px;border-radius:20px;margin-top:30px;box-shadow:0 10px 30px rgba(0,0,0,0.2);font-family:Caveat;font-size:24px}
+
+/* starry sky ending */
+#nightSky{
+position:fixed;top:0;left:0;width:100%;height:100%;background:black;opacity:0;pointer-events:none;transition:1s}
+
+.star{
+position:absolute;width:3px;height:3px;background:white;border-radius:50%;animation:twinkle 2s infinite alternate}
+
+@keyframes twinkle{0%{opacity:0.3}100%{opacity:1}}
 
 /* fireworks */
-.firework{
-position:fixed;
-width:6px;
-height:6px;
-background:white;
-border-radius:50%;
-animation:explode 1.2s ease-out forwards;
-}
+.firework{position:fixed;width:6px;height:6px;background:white;border-radius:50%;animation:explode 1.2s ease-out forwards}
 
-@keyframes explode{
-0%{transform:scale(1);opacity:1}
-100%{transform:scale(35);opacity:0}
-}
+@keyframes explode{0%{transform:scale(1);opacity:1}100%{transform:scale(35);opacity:0}}
 
-#finalScreen{
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:linear-gradient(135deg,#ff7ac6,#ffb3d9,#ffd6f5);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:60px;
-font-family:Pacifico;
-color:white;
-text-align:center;
-opacity:0;
-pointer-events:none;
-transition:1s;
-}
+#finalScreen{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:60px;font-family:Pacifico;color:white;text-align:center;opacity:0;pointer-events:none;transition:1s}
 
-#finalScreen.show{opacity:1;pointer-events:auto}
-
-.timeline{
-background:white;
-padding:35px;
-border-radius:20px;
-margin:60px 0;
-box-shadow:0 15px 40px rgba(0,0,0,0.2)
-}
-
-.timelineItem{margin:20px 0;padding-left:20px;border-left:4px solid #ff4da6}
+#finalScreen.show{opacity:1}
 
 footer{text-align:center;padding:50px;font-size:18px}
 </style></head><body><h1>Happy Birthday Niharika</h1>
 <div id="counter"></div><div class="cake" onclick="lightCandle()">
 <div class="candle"></div>
 <div class="flame" id="flame"></div>
-</div><div class="container"><div class="timeline">
-<h2>Our Timeline</h2>
-<div class="timelineItem">2024 — New school and a maths group.</div>
-<div class="timelineItem">One accidental message changed everything.</div>
-<div class="timelineItem">Diwali 2024 — You finally told me your name.</div>
-<div class="timelineItem">October 2024 — Friendship officially started.</div>
-<div class="timelineItem">Class 11 and 12 — Studies, chaos, roasting.</div>
-<div class="timelineItem">Today — Your birthday.</div>
-</div><div class="page"><h2>The accidental beginning</h2>
-<p>Our friendship started from a mistake. I joined a new school and accidentally messaged you thinking you were someone else.</p>
-<p>That random mistake slowly turned into conversations about studies and daily life.</p>
-</div><div class="page"><h2>The conversations</h2>
-<p>At first our talks were simple. Just classmates helping each other with doubts.</p>
-<p>Then slowly jokes started. Roasting started. And suddenly we were actual friends.</p>
-</div><div class="page"><h2>The study help</h2>
-<p>You helped me many times before exams and during doubts.</p>
-<p>Sometimes you explain things better than teachers.</p>
-</div><div class="page"><h2>The roasting</h2>
-<p>You call me suvar and kukur.</p>
-<p>I call you Temdi and Malich.</p>
-<p>Perfect balance of friendship.</p>
-</div><div class="page"><h2>The respect</h2>
-<p>You are hardworking, brave, and focused.</p>
-<p>I genuinely admire how serious you are about your studies and future.</p>
-</div><div class="page"><h2>The smile</h2>
+</div><div class="container"><div class="page">
+<h2>The Beginning</h2>
+<p class="typewrite">Our friendship started with one accidental message in 2024.</p>
+</div><div class="page">
+<h2>Slowly Becoming Friends</h2>
+<p>What started as random study talks slowly turned into real conversations and jokes.</p>
+</div><div class="page">
+<h2>The Roasting</h2>
+<p>You call me suvar and kukur. I call you Temdi and Malich. Balanced friendship.</p>
+</div><div class="page">
+<h2>The Respect</h2>
+<p>I admire how hardworking and focused you are about your studies and your future.</p>
+</div><div class="page">
+<h2>The Smile</h2>
 <p>Your smile can change the mood of a room.</p>
-<p>It is one of those small things that actually has a big impact.</p>
-</div><div class="page"><h2>The future</h2>
-<p>I truly believe you will achieve big things in life.</p>
-<p>Your determination will take you far.</p>
-</div><div class="page"><h2>The memories</h2>
-<p>Class 11 and 12 were stressful years but also memorable.</p>
-<p>Having a good friend during that time matters a lot.</p>
-</div><div class="page"><h2>Birthday wish</h2>
-<p>So Ms Slayy, Temdi, Malich, Niharika.</p>
-<p>Happy Birthday.</p>
-<p>I am genuinely glad that accidental message happened.</p>
+</div><div class="page">
+<h2>The Future</h2>
+<p>I truly believe you will achieve big things and make your parents proud.</p>
+</div><div class="page">
+<h2>Birthday Wish</h2>
+<p>Happy Birthday Ms Slayy, Temdi, Malich, Niharika.</p>
 </div><div class="envelope" onclick="openSecret()"></div><div id="secretMessage">
-Thanks for being my bestie. You are such an amazing person by heart. I am proud of you and the way you work hard for your goals. Keep making your parents proud. You are doing really good in life and you deserve great success and happiness.
-</div></div><footer>Scroll to the end for the final surprise.</footer><div id="finalScreen">Happy Birthday Ms Slayy 🎆</div><script>
+Thanks for being my bestie. You are such an amazing person by heart. I am proud of the way you work hard and move forward in life. Keep making your parents proud. You are doing really good and you deserve success, happiness, and everything beautiful in life.
+</div></div><footer>Scroll to the end for the final surprise.</footer><div id="nightSky"></div>
+<div id="finalScreen">Happy Birthday Ms Slayy ✨</div><script>
 
+/* page reveal */
 const pages=document.querySelectorAll('.page')
 function reveal(){
 pages.forEach(page=>{
@@ -277,11 +226,10 @@ if(top<window.innerHeight-100){page.classList.add('visible')}
 window.addEventListener('scroll',reveal)
 reveal()
 
-function lightCandle(){
-document.getElementById('flame').classList.toggle('lit')
-}
+/* candle */
+function lightCandle(){document.getElementById('flame').classList.toggle('lit')}
 
-/* birthday counter */
+/* countdown */
 const target=new Date()
 target.setHours(target.getHours()+5)
 function updateCounter(){
@@ -290,13 +238,11 @@ const diff=target-now
 const h=Math.floor(diff/1000/60/60)
 const m=Math.floor(diff/1000/60)%60
 const s=Math.floor(diff/1000)%60
-if(diff>0){
-document.getElementById('counter').innerText="Countdown: "+h+"h "+m+"m "+s+"s"
-}
+if(diff>0){document.getElementById('counter').innerText="Countdown: "+h+"h "+m+"m "+s+"s"}
 }
 setInterval(updateCounter,1000)
 
-/* limited balloons */
+/* balloons limited */
 for(let i=0;i<12;i++){
 let b=document.createElement('div')
 b.className='balloon'
@@ -306,22 +252,40 @@ b.style.animationDuration=(8+Math.random()*6)+'s'
 document.body.appendChild(b)
 }
 
-/* secret message */
-function openSecret(){
-document.getElementById('secretMessage').style.display='block'
+/* particles dreamy */
+for(let i=0;i<40;i++){
+let p=document.createElement('div')
+p.className='particle'
+p.style.left=Math.random()*100+'%'
+p.style.animationDuration=(8+Math.random()*10)+'s'
+p.style.animationDelay=Math.random()*5+'s'
+document.body.appendChild(p)
 }
 
-/* giant fireworks show */
+/* secret message */
+function openSecret(){document.getElementById('secretMessage').style.display='block'}
+
+/* ending sky + fireworks */
 window.addEventListener('scroll',()=>{
 if((window.innerHeight+window.scrollY)>=document.body.offsetHeight-10){
-startFireworks()
-document.getElementById('finalScreen').classList.add('show')
+startFinale()
 }
 })
 
-function startFireworks(){
+function startFinale(){
+const sky=document.getElementById('nightSky')
+sky.style.opacity=1
+
+for(let i=0;i<120;i++){
+let star=document.createElement('div')
+star.className='star'
+star.style.left=Math.random()*100+'%'
+star.style.top=Math.random()*100+'%'
+sky.appendChild(star)
+}
+
 let interval=setInterval(()=>{
-for(let i=0;i<20;i++){
+for(let i=0;i<25;i++){
 let f=document.createElement('div')
 f.className='firework'
 f.style.left=Math.random()*100+'%'
@@ -331,7 +295,10 @@ setTimeout(()=>f.remove(),1200)
 }
 },400)
 
-setTimeout(()=>clearInterval(interval),5000)
+setTimeout(()=>{
+clearInterval(interval)
+document.getElementById('finalScreen').classList.add('show')
+},5000)
 }
 
 </script></body>
