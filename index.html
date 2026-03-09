@@ -1,179 +1,174 @@
-<!--
-  BabaChemistryFrontPage.html
-  Single-file HTML front page for a Class 12 Chemistry project.
-  - Replace the Topic and Roll No placeholders where needed.
-  - This file is ready to copy into a GitHub repo or use with GitHub Pages.
-  - Print-friendly A4 layout included.
---><!doctype html>
+<!doctype html>
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>CHEMISTRY PROJECT — Baba International School</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --accent:#1e90ff;
-      --muted:#6b7280;
-      --paper:#fcfdff;
-      --border:#d1d5db;
-      --shadow: 0 8px 24px rgba(16,24,40,0.08);
-      --print-margin: 20mm;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:#f3f6fb;font-family:Poppins,system-ui,Arial,sans-serif;color:#0f172a}
-    .page{
-      width:210mm; /* A4 width */
-      min-height:297mm; /* A4 height */
-      margin:24px auto;
-      background:linear-gradient(180deg,var(--paper),#fff);
-      padding:32px;
-      border-radius:12px;
-      box-shadow:var(--shadow);
-      border:1px solid var(--border);
-      overflow:hidden;
-    }
-    .header{
-      text-align:center;
-      margin-top:8px;
-    }
-    .school{
-      font-family:'Playfair Display', serif;
-      font-size:22px;
-      letter-spacing:1px;
-      color:var(--accent);
-      font-weight:700;
-      text-transform:capitalize;
-    }
-    .title{
-      margin-top:6px;
-      font-family:'Playfair Display', serif;
-      font-size:36px;
-      font-weight:700;
-      letter-spacing:4px;
-      color:#0b1220;
-    }
-    .subtitle{
-      margin-top:6px;
-      font-size:14px;
-      color:var(--muted);
-      font-weight:600;
-    }/* Decorative band */
-.decor{
-  display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 22px;
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Niharika Birthday Diary</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
+body{margin:0;font-family:Poppins,sans-serif;background:linear-gradient(120deg,#ffd6e7,#ffe8c7,#e3d4ff,#d4f1ff,#ffd6f5);background-size:500% 500%;animation:bgmove 18s infinite alternate;overflow-x:hidden}
+
+@keyframes bgmove{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+
+h1{font-family:Pacifico,cursive;text-align:center;font-size:54px;margin-top:40px;color:#ff2e88;animation:pop 2s infinite alternate;text-shadow:0 0 10px rgba(255,0,120,0.3)}
+@keyframes pop{0%{transform:scale(1)}100%{transform:scale(1.08)}}
+
+.container{max-width:900px;margin:auto;padding:20px}
+
+.page{background:white;padding:40px;border-radius:24px;margin:50px 0;box-shadow:0 20px 60px rgba(0,0,0,0.18);transform:translateY(70px);opacity:0;transition:all 1s;position:relative}
+.page.visible{transform:translateY(0);opacity:1}
+
+.page h2{font-family:'Patrick Hand';font-size:32px;color:#ff4da6}
+.page p{line-height:1.9;font-size:16px}
+
+/* decorative stickers */
+.sticker{position:absolute;font-size:28px;opacity:.8}
+.star{top:-10px;right:20px}
+.tape{top:-12px;left:20px;font-size:22px}
+.heartSticker{bottom:-12px;right:30px}
+
+/* balloons */
+.balloon{position:fixed;bottom:-150px;width:70px;height:90px;border-radius:50%;cursor:pointer;animation:float 12s linear infinite}
+.balloon:after{content:"";position:absolute;bottom:-20px;left:50%;width:2px;height:40px;background:#444}
+
+@keyframes float{0%{transform:translateY(0)}100%{transform:translateY(-120vh)}}
+
+/* balloon pop */
+.pop{animation:popBalloon .3s forwards}
+@keyframes popBalloon{0%{transform:scale(1)}100%{transform:scale(1.6);opacity:0}}
+
+/* cake */
+.cake{margin:auto;margin-top:30px;width:140px;height:120px;background:#ffb3d9;border-radius:20px;position:relative;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,0.25);animation:cakebounce 2s infinite}
+@keyframes cakebounce{0%{transform:translateY(0)}50%{transform:translateY(-14px)}100%{transform:translateY(0)}}
+
+.candle{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:12px;height:40px;background:white;border-radius:4px}
+.flame{position:absolute;top:-65px;left:50%;transform:translateX(-50%);width:24px;height:24px;background:orange;border-radius:50%;opacity:0}
+.flame.lit{opacity:1;animation:flicker .25s infinite alternate}
+@keyframes flicker{0%{transform:translateX(-50%) scale(1)}100%{transform:translateX(-50%) scale(1.3)}}
+
+/* confetti */
+.confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.confetti-piece{position:absolute;width:10px;height:20px;animation:fall 3s linear infinite}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0)}100%{transform:translateY(110vh) rotate(360deg)}}
+
+/* fireworks */
+.firework{position:fixed;width:8px;height:8px;background:white;border-radius:50%;animation:explode 1s ease-out forwards}
+@keyframes explode{0%{transform:scale(1);opacity:1}100%{transform:scale(25);opacity:0}}
+
+/* timeline */
+.timeline{background:white;padding:30px;border-radius:20px;margin:60px 0;box-shadow:0 15px 40px rgba(0,0,0,0.2)}
+.timeline h2{font-family:'Patrick Hand';color:#ff4da6}
+.timelineItem{margin:20px 0;padding-left:20px;border-left:4px solid #ff4da6}
+
+/* final screen */
+#finalScreen{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#ff7ac6,#ffb3d9,#ffd6f5);display:flex;align-items:center;justify-content:center;font-size:60px;font-family:Pacifico;color:white;text-align:center;opacity:0;pointer-events:none;transition:1s}
+#finalScreen.show{opacity:1;pointer-events:auto}
+
+footer{text-align:center;padding:50px;font-size:18px}
+</style></head><body><h1>Happy Birthday Niharika</h1><div class="cake" onclick="lightCandle()">
+<div class="candle"></div>
+<div class="flame" id="flame"></div>
+</div><div class="container"><div class="timeline">
+<h2>Our Timeline</h2>
+<div class="timelineItem">2024 — New school. A math group. One accidental message.</div>
+<div class="timelineItem">Diwali 2024 — You finally told me your name.</div>
+<div class="timelineItem">October 2024 — We became proper friends.</div>
+<div class="timelineItem">Class 11 & 12 — Study help, roasting each other, and chaos.</div>
+<div class="timelineItem">Today — Your birthday.</div>
+</div><div class="page">
+<div class="sticker star">⭐</div>
+<div class="sticker tape">🧷</div>
+<h2>The Beginning</h2>
+<p>Happy Birthday Niharika. Or Ms Slayy, Temdi, Malich, and the person who still calls me suvar and kukur.</p>
+<p>Our friendship literally started because of a mistake. I joined a new school in 2024. Everything was new. A maths group was created and I got added to it.</p>
+<p>One day I tried to message Adarsh. But instead I messaged you.</p>
+<p>I thought I was texting a guy. Turns out I accidentally texted you.</p>
+<p>That random mistake started everything.</p>
+</div><div class="page">
+<div class="sticker heartSticker">💗</div>
+<h2>The Friendship</h2>
+<p>Slowly we started talking more. At first just studies. Then jokes. Then roasting each other.</p>
+<p>You call me suvar and kukur. I call you Temdi and Malich.</p>
+<p>Perfect balance.</p>
+<p>You helped me before exams, during doubts, and whenever I needed help.</p>
+<p>That kind of friend is rare.</p>
+</div><div class="page">
+<h2>Future</h2>
+<p>I genuinely believe you will achieve big things. Your focus and determination will take you far.</p>
+<p>And yes you should definitely become a billionaire.</p>
+<p>Mostly so you can buy me things I want.</p>
+<p>But seriously I hope you achieve happiness, success, and everything you dream about.</p>
+</div><div class="page">
+<h2>Birthday Wish</h2>
+<p>So Ms Slayy, Temdi, Malich, Niharika.</p>
+<p>Happy Birthday.</p>
+<p>I respect you. I appreciate you. And I am glad you are my friend.</p>
+<p>Eat good food. Laugh a lot. Enjoy your day.</p>
+</div></div><footer>Scroll till the end for a surprise.</footer><div class="confetti" id="confetti"></div>
+<div id="finalScreen">Happy Birthday Ms Slayy 🎉</div><script>
+
+const pages=document.querySelectorAll('.page')
+function reveal(){
+pages.forEach(page=>{
+const top=page.getBoundingClientRect().top
+if(top<window.innerHeight-100){page.classList.add('visible')}
+})}
+window.addEventListener('scroll',reveal)
+reveal()
+
+function lightCandle(){
+const flame=document.getElementById('flame')
+flame.classList.toggle('lit')
+createConfetti()
 }
-.decor svg{width:48px;height:48px;opacity:0.95}
 
-.content{
-  display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:18px 30px;margin-top:8px;
-}
-.box{
-  background:linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.95));
-  border-radius:10px;padding:16px;border:1px dashed var(--border);
-  min-height:110px;display:flex;flex-direction:column;justify-content:center;
-}
-.label{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px}
-.value{font-size:16px;font-weight:700;color:#0b1220}
+function createConfetti(){
+const container=document.getElementById('confetti')
+for(let i=0;i<100;i++){
+const c=document.createElement('div')
+c.className='confetti-piece'
+c.style.left=Math.random()*100+'%'
+c.style.background=['#ff4da6','#ffd84d','#6effa1','#4dd2ff','#b84dff'][Math.floor(Math.random()*5)]
+c.style.animationDuration=(2+Math.random()*3)+'s'
+container.appendChild(c)
+setTimeout(()=>{c.remove()},4000)
+}}
 
-.full{grid-column:1/3}
-.footer{
-  margin-top:26px;text-align:center;color:var(--muted);font-size:13px
-}
+/* interactive balloons */
+for(let i=0;i<25;i++){
+let b=document.createElement('div')
+b.className='balloon'
+b.style.left=Math.random()*100+'%'
+b.style.background=['#ff6fa5','#ffd84d','#6effa1','#4dd2ff','#b84dff'][Math.floor(Math.random()*5)]
+b.style.animationDuration=(6+Math.random()*6)+'s'
 
-/* Molecule background subtle */
-.molecules{
-  position:absolute;right:-40px;top:8px;opacity:0.08;transform:rotate(8deg);pointer-events:none
-}
-
-@media print{
-  body{background:white}
-  .page{box-shadow:none;border-radius:0;margin:0;padding:var(--print-margin);width:auto;min-height:auto}
-}
-
-/* small responsive */
-@media (max-width:900px){
-  .page{width:95%;padding:20px}
-  .content{grid-template-columns:1fr}
-  .decor svg{width:36px;height:36px}
+b.onclick=function(){
+b.classList.add('pop')
+createConfetti()
+setTimeout(()=>b.remove(),300)
 }
 
-  </style>
-</head>
-<body>
-  <div class="page" role="main"><!-- Subtle molecule svg background -->
-<svg class="molecules" width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-  <g stroke="#0b1220" stroke-width="4" fill="none">
-    <circle cx="60" cy="60" r="18"/>
-    <circle cx="150" cy="30" r="12"/>
-    <circle cx="240" cy="90" r="24"/>
-    <circle cx="320" cy="40" r="10"/>
-    <path d="M78 78 L140 46"/>
-    <path d="M228 86 L290 52"/>
-    <path d="M150 30 L230 90"/>
-  </g>
-</svg>
+document.body.appendChild(b)
+}
 
-<header class="header">
-  <div class="school">Baba International School</div>
-  <div class="title">CHEMISTRY PROJECT</div>
-  <div class="subtitle">Class 12 &nbsp;•&nbsp; Stream: PCM</div>
-</header>
+/* fireworks at end */
+window.addEventListener('scroll',()=>{
+if((window.innerHeight+window.scrollY)>=document.body.offsetHeight-10){
+launchFireworks()
+document.getElementById('finalScreen').classList.add('show')
+}
+})
 
-<div class="decor" aria-hidden>
-  <!-- Beaker -->
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v2h8V2H8zM6 4v2.5l2 11.5A2 2 0 0 0 10 20h4a2 2 0 0 0 2-2l2-11.5V4H6z" fill="currentColor"/></svg>
-  <!-- Atom -->
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10.34 2 9 6.58 9 12s1.34 10 3 10 3-4.58 3-10S13.66 2 12 2zm6.32 4.34c-.86-.53-2.2-.06-3.34 1.06-1.53 1.53-2.6 3.9-2.98 6.6 2.64.38 5.03 1.45 6.56 2.98 1.12 1.14 1.59 2.48 1.06 3.34-.53.86-2.2.06-3.34-1.06-1.53-1.53-2.6-3.9-2.98-6.6-2.64-.38-5.03-1.45-6.56-2.98C3.34 8.98 2.87 7.64 3.4 6.78c.53-.86 2.2-.06 3.34 1.06 1.53 1.53 2.6 3.9 2.98 6.6 2.64.38 5.03 1.45 6.56 2.98 1.14 1.12 1.59 2.48 1.06 3.34z" fill="currentColor"/></svg>
-  <!-- Molecule cluster -->
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM6 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM20 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM8.5 12.5l7-4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor"/></svg>
-</div>
+function launchFireworks(){
+for(let i=0;i<40;i++){
+let f=document.createElement('div')
+f.className='firework'
+f.style.left=Math.random()*100+'%'
+f.style.top=Math.random()*70+'%'
+document.body.appendChild(f)
+setTimeout(()=>f.remove(),1000)
+}
+}
 
-<main class="content" aria-label="Project details">
-  <section class="box full" aria-labelledby="topic">
-    <div class="label" id="topic">✦ Topic</div>
-    <div class="value">__________________________________________</div>
-  </section>
-
-  <section class="box">
-    <div class="label">✦ Submitted By</div>
-    <div class="value">pookie singh</div>
-  </section>
-
-  <section class="box">
-    <div class="label">✦ Class & Stream</div>
-    <div class="value">Class 12 — PCM</div>
-  </section>
-
-  <section class="box">
-    <div class="label">✦ Roll No.</div>
-    <div class="value">________________</div>
-  </section>
-
-  <section class="box">
-    <div class="label">✦ Session</div>
-    <div class="value">2024 — 2025</div>
-  </section>
-
-  <section class="box">
-    <div class="label">✦ Submitted To</div>
-    <div class="value">kunal shukla — captain</div>
-  </section>
-
-  <section class="box full" style="text-align:center;margin-top:6px;">
-    <div style="font-size:13px;color:var(--muted);font-weight:600;margin-bottom:8px">Decorative chemistry area</div>
-    <div style="display:flex;align-items:center;justify-content:center;gap:18px">
-      <!-- small svg icons -->
-      <svg width="48" height="48" viewBox="0 0 24 24"><path d="M7 2v4H5v2h14V6h-2V2H7zM7 10H5v10h14V10h-2v6H9v-6H7z" fill="currentColor"/></svg>
-      <svg width="48" height="48" viewBox="0 0 24 24"><path d="M6 2h12l2 6H4l2-6zM3 10h18v2a7 7 0 0 1-7 7H10a7 7 0 0 1-7-7v-2z" fill="currentColor"/></svg>
-      <svg width="48" height="48" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5c0 2.76 2.69 5.44 5 9.18 2.31-3.74 5-6.42 5-9.18a5 5 0 0 0-5-5z" fill="currentColor"/></svg>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">Designed for Baba International School — Print on A4 (portrait)</footer>
-
-  </div>
-</body>
+</script></body>
 </html>
