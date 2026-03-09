@@ -5,135 +5,268 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Niharika Birthday Diary</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
-body{margin:0;font-family:Poppins,sans-serif;background:linear-gradient(120deg,#ffd6e7,#ffe8c7,#e3d4ff,#d4f1ff,#ffd6f5);background-size:500% 500%;animation:bgmove 18s infinite alternate;overflow-x:hidden}
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&family=Caveat:wght@500&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:linear-gradient(120deg,#ffd6e7,#ffe8c7,#e3d4ff,#d4f1ff,#ffd6f5);
+background-size:500% 500%;
+animation:bgmove 18s infinite alternate;
+overflow-x:hidden;
+}
 
 @keyframes bgmove{0%{background-position:0% 50%}100%{background-position:100% 50%}}
 
-h1{font-family:Pacifico,cursive;text-align:center;font-size:54px;margin-top:40px;color:#ff2e88;animation:pop 2s infinite alternate;text-shadow:0 0 10px rgba(255,0,120,0.3)}
+h1{
+font-family:Pacifico;
+text-align:center;
+font-size:54px;
+margin-top:20px;
+color:#ff2e88;
+animation:pop 3s infinite alternate;
+}
+
 @keyframes pop{0%{transform:scale(1)}100%{transform:scale(1.08)}}
+
+#counter{
+text-align:center;
+font-size:20px;
+margin-top:10px;
+font-weight:600;
+color:#444;
+}
 
 .container{max-width:900px;margin:auto;padding:20px}
 
-.page{background:white;padding:40px;border-radius:24px;margin:50px 0;box-shadow:0 20px 60px rgba(0,0,0,0.18);transform:translateY(70px);opacity:0;transition:all 1s;position:relative}
+.page{
+background:white;
+padding:45px;
+border-radius:24px;
+margin:60px 0;
+box-shadow:0 25px 70px rgba(0,0,0,0.15);
+transform:translateY(70px);
+opacity:0;
+transition:all 1s;
+position:relative;
+}
+
 .page.visible{transform:translateY(0);opacity:1}
 
-.page h2{font-family:'Patrick Hand';font-size:32px;color:#ff4da6}
-.page p{line-height:1.9;font-size:16px}
+.page h2{
+font-family:Caveat;
+font-size:38px;
+color:#ff4da6;
+}
 
-/* decorative stickers */
-.sticker{position:absolute;font-size:28px;opacity:.8}
-.star{top:-10px;right:20px}
-.tape{top:-12px;left:20px;font-size:22px}
-.heartSticker{bottom:-12px;right:30px}
+.page p{
+line-height:1.9;
+font-size:16px;
+}
 
-/* balloons */
-.balloon{position:fixed;bottom:-150px;width:70px;height:90px;border-radius:50%;cursor:pointer;animation:float 12s linear infinite}
-.balloon:after{content:"";position:absolute;bottom:-20px;left:50%;width:2px;height:40px;background:#444}
+/* doodle animations */
+.doodle{
+position:absolute;
+stroke:#ff4da6;
+stroke-width:3;
+fill:none;
+stroke-dasharray:200;
+stroke-dashoffset:200;
+animation:draw 3s forwards;
+}
 
-@keyframes float{0%{transform:translateY(0)}100%{transform:translateY(-120vh)}}
+@keyframes draw{
+to{stroke-dashoffset:0}
+}
 
-/* balloon pop */
-.pop{animation:popBalloon .3s forwards}
-@keyframes popBalloon{0%{transform:scale(1)}100%{transform:scale(1.6);opacity:0}}
+/* balloons limited */
+.balloon{
+position:fixed;
+bottom:-120px;
+width:70px;
+height:90px;
+border-radius:50%;
+animation:float 10s linear forwards;
+}
+
+.balloon:after{
+content:"";
+position:absolute;
+bottom:-20px;
+left:50%;
+width:2px;
+height:40px;
+background:#555;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-120vh)}
+}
 
 /* cake */
-.cake{margin:auto;margin-top:30px;width:140px;height:120px;background:#ffb3d9;border-radius:20px;position:relative;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,0.25);animation:cakebounce 2s infinite}
+.cake{
+margin:auto;
+margin-top:30px;
+width:150px;
+height:120px;
+background:#ffb3d9;
+border-radius:20px;
+position:relative;
+cursor:pointer;
+box-shadow:0 12px 35px rgba(0,0,0,0.25);
+animation:cakebounce 2s infinite;
+}
+
 @keyframes cakebounce{0%{transform:translateY(0)}50%{transform:translateY(-14px)}100%{transform:translateY(0)}}
 
-.candle{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:12px;height:40px;background:white;border-radius:4px}
-.flame{position:absolute;top:-65px;left:50%;transform:translateX(-50%);width:24px;height:24px;background:orange;border-radius:50%;opacity:0}
-.flame.lit{opacity:1;animation:flicker .25s infinite alternate}
+.candle{
+position:absolute;
+top:-40px;
+left:50%;
+transform:translateX(-50%);
+width:12px;
+height:40px;
+background:white;
+}
+
+.flame{
+position:absolute;
+top:-65px;
+left:50%;
+transform:translateX(-50%);
+width:24px;
+height:24px;
+background:orange;
+border-radius:50%;
+opacity:0;
+}
+
+.flame.lit{opacity:1;animation:flicker .3s infinite alternate}
+
 @keyframes flicker{0%{transform:translateX(-50%) scale(1)}100%{transform:translateX(-50%) scale(1.3)}}
 
-/* confetti */
-.confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}
-.confetti-piece{position:absolute;width:10px;height:20px;animation:fall 3s linear infinite}
-@keyframes fall{0%{transform:translateY(-10vh) rotate(0)}100%{transform:translateY(110vh) rotate(360deg)}}
+/* secret envelope */
+.envelope{
+margin:80px auto;
+width:220px;
+height:140px;
+background:#ff9ac6;
+position:relative;
+cursor:pointer;
+border-radius:8px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.envelope:before{
+content:"";
+position:absolute;
+width:0;height:0;
+border-left:110px solid transparent;
+border-right:110px solid transparent;
+border-top:70px solid #ff7ab6;
+top:0;left:0;
+}
+
+#secretMessage{
+display:none;
+background:white;
+padding:30px;
+border-radius:20px;
+margin-top:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+font-family:Caveat;
+font-size:22px;
+}
 
 /* fireworks */
-.firework{position:fixed;width:8px;height:8px;background:white;border-radius:50%;animation:explode 1s ease-out forwards}
-@keyframes explode{0%{transform:scale(1);opacity:1}100%{transform:scale(25);opacity:0}}
+.firework{
+position:fixed;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+animation:explode 1.2s ease-out forwards;
+}
 
-/* timeline */
-.timeline{background:white;padding:30px;border-radius:20px;margin:60px 0;box-shadow:0 15px 40px rgba(0,0,0,0.2)}
-.timeline h2{font-family:'Patrick Hand';color:#ff4da6}
-.timelineItem{margin:20px 0;padding-left:20px;border-left:4px solid #ff4da6}
+@keyframes explode{
+0%{transform:scale(1);opacity:1}
+100%{transform:scale(35);opacity:0}
+}
 
-/* final screen */
-#finalScreen{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#ff7ac6,#ffb3d9,#ffd6f5);display:flex;align-items:center;justify-content:center;font-size:60px;font-family:Pacifico;color:white;text-align:center;opacity:0;pointer-events:none;transition:1s}
+#finalScreen{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:linear-gradient(135deg,#ff7ac6,#ffb3d9,#ffd6f5);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:60px;
+font-family:Pacifico;
+color:white;
+text-align:center;
+opacity:0;
+pointer-events:none;
+transition:1s;
+}
+
 #finalScreen.show{opacity:1;pointer-events:auto}
 
+.timeline{
+background:white;
+padding:35px;
+border-radius:20px;
+margin:60px 0;
+box-shadow:0 15px 40px rgba(0,0,0,0.2)
+}
+
+.timelineItem{margin:20px 0;padding-left:20px;border-left:4px solid #ff4da6}
+
 footer{text-align:center;padding:50px;font-size:18px}
-</style></head><body><h1>Happy Birthday Niharika</h1><div class="cake" onclick="lightCandle()">
+</style></head><body><h1>Happy Birthday Niharika</h1>
+<div id="counter"></div><div class="cake" onclick="lightCandle()">
 <div class="candle"></div>
 <div class="flame" id="flame"></div>
 </div><div class="container"><div class="timeline">
 <h2>Our Timeline</h2>
-<div class="timelineItem">Early 2024 — New school, new class, everything unfamiliar.</div>
-<div class="timelineItem">One random day — I accidentally text the wrong person.</div>
-<div class="timelineItem">Diwali 2024 — You finally reveal your name.</div>
-<div class="timelineItem">October 2024 — Friendship officially begins.</div>
-<div class="timelineItem">Class 11 to 12 — Studies, roasting, chaos.</div>
+<div class="timelineItem">2024 — New school and a maths group.</div>
+<div class="timelineItem">One accidental message changed everything.</div>
+<div class="timelineItem">Diwali 2024 — You finally told me your name.</div>
+<div class="timelineItem">October 2024 — Friendship officially started.</div>
+<div class="timelineItem">Class 11 and 12 — Studies, chaos, roasting.</div>
 <div class="timelineItem">Today — Your birthday.</div>
-</div><div class="page"><div class="sticker star">⭐</div><div class="sticker tape">🧷</div>
-<h2>Slide 1 — Happy Birthday</h2>
-<p>Happy Birthday Niharika. Or Ms Slayy, Temdi, Malich, and the person who keeps calling me suvar and kukur.</p>
-<p>This is not a normal birthday message. This is more like a small diary of our friendship.</p>
-</div><div class="page"><h2>Slide 2 — The mistake</h2>
-<p>In 2024 I joined a new school. Everything was new. New environment, new classmates, new routine.</p>
-<p>A maths group was created and I got added to it.</p>
-<p>One day I tried to message Adarsh.</p>
-<p>Instead I accidentally messaged you.</p>
-</div><div class="page"><h2>Slide 3 — The confusion</h2>
-<p>I genuinely thought I was texting a guy.</p>
-<p>Then you replied and told me you were not Adarsh and that you were actually a girl from the class.</p>
-<p>That moment was honestly funny when I think about it now.</p>
-</div><div class="page"><h2>Slide 4 — The mystery</h2>
-<p>Then I asked your name.</p>
-<p>And you did not tell me.</p>
-<p>That was literally our first conversation.</p>
-<p>A random unknown person refusing to reveal their name.</p>
-</div><div class="page"><h2>Slide 5 — The reveal</h2>
-<p>Later on Diwali 2024 you finally told me your name.</p>
-<p>Niharika.</p>
-<p>From that point our conversations slowly started becoming normal.</p>
-</div><div class="page"><h2>Slide 6 — The friendship</h2>
-<p>By October we were proper friends.</p>
-<p>Looking back it is funny how one accidental message created an actual friendship.</p>
-</div><div class="page"><h2>Slide 7 — The study partner</h2>
-<p>You are one of the most focused people when it comes to studies.</p>
+</div><div class="page"><h2>The accidental beginning</h2>
+<p>Our friendship started from a mistake. I joined a new school and accidentally messaged you thinking you were someone else.</p>
+<p>That random mistake slowly turned into conversations about studies and daily life.</p>
+</div><div class="page"><h2>The conversations</h2>
+<p>At first our talks were simple. Just classmates helping each other with doubts.</p>
+<p>Then slowly jokes started. Roasting started. And suddenly we were actual friends.</p>
+</div><div class="page"><h2>The study help</h2>
 <p>You helped me many times before exams and during doubts.</p>
 <p>Sometimes you explain things better than teachers.</p>
-</div><div class="page"><h2>Slide 8 — The roasting</h2>
-<p>At the same time you are also the same person who calls me suvar, kukur, and malich.</p>
-<p>And I call you Temdi and Malich back.</p>
-<p>Balanced friendship.</p>
-</div><div class="page"><h2>Slide 9 — The personality</h2>
-<p>You are smart, hardworking, and brave.</p>
-<p>You deal with pressure calmly and still keep moving forward.</p>
-<p>That is something I genuinely respect about you.</p>
-</div><div class="page"><h2>Slide 10 — The smile</h2>
-<p>Your smile is actually powerful.</p>
-<p>If someone is angry or upset and they see you smiling, their mood changes.</p>
-<p>That is a rare quality.</p>
-</div><div class="page"><h2>Slide 11 — The future</h2>
-<p>I believe you will achieve big things.</p>
-<p>Your focus and determination will take you far.</p>
-<p>And yes you should become a billionaire.</p>
-<p>Mainly so you can buy me things.</p>
-</div><div class="page"><h2>Slide 12 — The memory</h2>
-<p>We spent two important years together. Class 11 and Class 12.</p>
-<p>Those years were stressful but also memorable.</p>
+</div><div class="page"><h2>The roasting</h2>
+<p>You call me suvar and kukur.</p>
+<p>I call you Temdi and Malich.</p>
+<p>Perfect balance of friendship.</p>
+</div><div class="page"><h2>The respect</h2>
+<p>You are hardworking, brave, and focused.</p>
+<p>I genuinely admire how serious you are about your studies and future.</p>
+</div><div class="page"><h2>The smile</h2>
+<p>Your smile can change the mood of a room.</p>
+<p>It is one of those small things that actually has a big impact.</p>
+</div><div class="page"><h2>The future</h2>
+<p>I truly believe you will achieve big things in life.</p>
+<p>Your determination will take you far.</p>
+</div><div class="page"><h2>The memories</h2>
+<p>Class 11 and 12 were stressful years but also memorable.</p>
 <p>Having a good friend during that time matters a lot.</p>
-</div><div class="page"><h2>Slide 13 — Birthday wish</h2>
+</div><div class="page"><h2>Birthday wish</h2>
 <p>So Ms Slayy, Temdi, Malich, Niharika.</p>
 <p>Happy Birthday.</p>
-<p>I appreciate our friendship and I am glad that accidental message happened.</p>
-<p>Enjoy your day. Laugh a lot. Eat good food.</p>
-<p>And remember that this friendship started from one random message.</p>
-</div></div><footer>Scroll till the end for a surprise.</footer><div class="confetti" id="confetti"></div>
-<div id="finalScreen">Happy Birthday Ms Slayy 🎉</div><script>
+<p>I am genuinely glad that accidental message happened.</p>
+</div><div class="envelope" onclick="openSecret()"></div><div id="secretMessage">
+Thanks for being my bestie. You are such an amazing person by heart. I am proud of you and the way you work hard for your goals. Keep making your parents proud. You are doing really good in life and you deserve great success and happiness.
+</div></div><footer>Scroll to the end for the final surprise.</footer><div id="finalScreen">Happy Birthday Ms Slayy 🎆</div><script>
 
 const pages=document.querySelectorAll('.page')
 function reveal(){
@@ -145,57 +278,60 @@ window.addEventListener('scroll',reveal)
 reveal()
 
 function lightCandle(){
-const flame=document.getElementById('flame')
-flame.classList.toggle('lit')
-createConfetti()
+document.getElementById('flame').classList.toggle('lit')
 }
 
-function createConfetti(){
-const container=document.getElementById('confetti')
-for(let i=0;i<100;i++){
-const c=document.createElement('div')
-c.className='confetti-piece'
-c.style.left=Math.random()*100+'%'
-c.style.background=['#ff4da6','#ffd84d','#6effa1','#4dd2ff','#b84dff'][Math.floor(Math.random()*5)]
-c.style.animationDuration=(2+Math.random()*3)+'s'
-container.appendChild(c)
-setTimeout(()=>{c.remove()},4000)
-}}
+/* birthday counter */
+const target=new Date()
+target.setHours(target.getHours()+5)
+function updateCounter(){
+const now=new Date()
+const diff=target-now
+const h=Math.floor(diff/1000/60/60)
+const m=Math.floor(diff/1000/60)%60
+const s=Math.floor(diff/1000)%60
+if(diff>0){
+document.getElementById('counter').innerText="Countdown: "+h+"h "+m+"m "+s+"s"
+}
+}
+setInterval(updateCounter,1000)
 
-/* interactive balloons */
-for(let i=0;i<25;i++){
+/* limited balloons */
+for(let i=0;i<12;i++){
 let b=document.createElement('div')
 b.className='balloon'
 b.style.left=Math.random()*100+'%'
 b.style.background=['#ff6fa5','#ffd84d','#6effa1','#4dd2ff','#b84dff'][Math.floor(Math.random()*5)]
-b.style.animationDuration=(6+Math.random()*6)+'s'
-
-b.onclick=function(){
-b.classList.add('pop')
-createConfetti()
-setTimeout(()=>b.remove(),300)
-}
-
+b.style.animationDuration=(8+Math.random()*6)+'s'
 document.body.appendChild(b)
 }
 
-/* fireworks at end */
+/* secret message */
+function openSecret(){
+document.getElementById('secretMessage').style.display='block'
+}
+
+/* giant fireworks show */
 window.addEventListener('scroll',()=>{
 if((window.innerHeight+window.scrollY)>=document.body.offsetHeight-10){
-launchFireworks()
+startFireworks()
 document.getElementById('finalScreen').classList.add('show')
 }
 })
 
-function launchFireworks(){
-for(let i=0;i<40;i++){
+function startFireworks(){
+let interval=setInterval(()=>{
+for(let i=0;i<20;i++){
 let f=document.createElement('div')
 f.className='firework'
 f.style.left=Math.random()*100+'%'
-f.style.top=Math.random()*70+'%'
+f.style.top=Math.random()*80+'%'
 document.body.appendChild(f)
-setTimeout(()=>f.remove(),1000)
+setTimeout(()=>f.remove(),1200)
 }
+},400)
+
+setTimeout(()=>clearInterval(interval),5000)
 }
 
 </script></body>
